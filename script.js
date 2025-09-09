@@ -1,3 +1,17 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const openPopupBtn = document.querySelector(".add-book");
+  const popUpContainer = document.querySelector(".popup-container");
+  const closeBtn = document.querySelector(".close-btn");
+
+  openPopupBtn.addEventListener("click", function () {
+    popUpContainer.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", function () {
+    popUpContainer.style.display = "none";
+  });
+});
+
 const myLibrary = [];
 
 function Book(id, title, author, numOfPages, readStatus) {

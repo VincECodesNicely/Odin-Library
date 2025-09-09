@@ -17,10 +17,10 @@ body {
   background-color: #edeef2;
 }
 
-.blurred {
+/* .blurred {
   filter: blur(5px);
   transition: filter 0.3s ease-in-out;
-}
+} */
 
 header {
   grid-column: 1/3;
@@ -118,7 +118,7 @@ header h1 {
 }
 
 .popup-container {
-  /* display: none; */
+  display: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -130,6 +130,18 @@ header h1 {
   -webkit-box-shadow: 0 0 6px 0 #222;
   -moz-box-shadow: 0 0 6px 0 #222;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.close-btn {
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.close-btn img {
+  width: 30px;
 }
 
 .popup-content {
