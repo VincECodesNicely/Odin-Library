@@ -2,12 +2,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const openPopupBtn = document.querySelector(".add-book");
   const popUpContainer = document.querySelector(".popup-container");
   const closeBtn = document.querySelector(".close-btn");
+  const contentBlur = document.querySelector(".content-blur");
 
-  openPopupBtn.addEventListener("click", function () {
+  openPopupBtn.addEventListener("click", () => {
+    contentBlur.classList.add("blurred");
     popUpContainer.style.display = "block";
   });
 
   closeBtn.addEventListener("click", function () {
+    contentBlur.classList.remove("blurred");
     popUpContainer.style.display = "none";
   });
 });
