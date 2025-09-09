@@ -1,9 +1,18 @@
 const myLibrary = [];
 
-function Book() {
+function Book(id, title, author, numOfPages, readStatus) {
   // the constructor...
+  this.id = id;
+  this.title = title;
+  this.author = author;
+  this.numOfPages = numOfPages;
+  this.readStatus = readStatus;
 }
 
+//this function is adding in new book objects into myLibrary
 function addBookToLibrary(title, author, numOfPages, readStatus) {
   // take params, create a book then store it in the array
 }
+
+//this function will display all the books in myLibrary
+function displayLibrary() {}
