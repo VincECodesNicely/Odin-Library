@@ -33,3 +33,23 @@ function addBookToLibrary(title, author, numOfPages, readStatus) {
 
 //this function will display all the books in myLibrary
 function displayLibrary() {}
+
+const bookForm = document.querySelector("#bookForm");
+const submitBook = document.querySelector(".submit-book");
+
+bookForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const bookInfo = Object.fromEntries(formData);
+
+  let newBook = new Book(
+    (bookInfo.id = crypto.randomUUID()),
+    bookInfo.title,
+    bookInfo.author,
+    bookInfo.numOfPages,
+    bookInfo.status
+  );
+
+  console.log(newBook);
+});
