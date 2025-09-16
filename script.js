@@ -29,27 +29,33 @@ function Book(id, title, author, numOfPages, readStatus) {
 //this function is adding in new book objects into myLibrary
 function addBookToLibrary(title, author, numOfPages, readStatus) {
   // take params, create a book then store it in the array
+  let book = new Book(
+    crypto.randomUUID(),
+    title,
+    author,
+    numOfPages,
+    readStatus
+  );
+  myLibrary.push(book);
+  console.log(myLibrary);
+  return console.log(book);
 }
 
 //this function will display all the books in myLibrary
-function displayLibrary() {}
-
-const bookForm = document.querySelector("#bookForm");
-const submitBook = document.querySelector(".submit-book");
+function displayLibrary() {
+  Book.forEach(function (books, index) {});
+}
 
 bookForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  const formData = new FormData(event.target);
-  const bookInfo = Object.fromEntries(formData);
+  const form = event.currentTarget;
+  const formData = new FormData(form);
 
-  let newBook = new Book(
-    (bookInfo.id = crypto.randomUUID()),
-    bookInfo.title,
-    bookInfo.author,
-    bookInfo.numOfPages,
-    bookInfo.status
-  );
+  const title = formData.get("title");
+  const author = formData.get("author");
+  const numOfPages = formData.get("numOfPages");
+  const readStatus = formData.get("status");
 
-  console.log(newBook);
+  addBookToLibrary(title, author, numOfPages, readStatus);
 });
