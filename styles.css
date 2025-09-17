@@ -115,6 +115,22 @@ header h1 {
   border-radius: 10px;
   padding: 30px;
   overflow-y: auto;
+  font-size: 20px;
+  gap: 20px;
+}
+
+.delete-btn {
+  display: flex;
+
+  width: fit-content;
+  border: none;
+  background: red;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  filter: invert(1);
+  width: 30px;
 }
 
 .popup-container {

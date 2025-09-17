@@ -57,10 +57,29 @@ function displayLibrary() {
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>Pages:</strong> ${book.numOfPages}</p>
       <p><strong>Status:</strong> ${book.readStatus}</p>
+      <button class="delete-btn">
+        <img src="imgs/bin-svgrepo-com.svg" />
+      </button>
     `;
 
     cardContainer.appendChild(bookCard);
   });
+
+  const deleteButton = document.querySelector(".delet-btn");
+  deleteButton.addEventListener("click", () => {
+    deletBook(book.id);
+  });
+}
+
+function deleteBook(id) {
+  // remove from array
+  myLibrary = myLibrary.filter((book) => book.id !== id);
+
+  // remove from DOM
+  const card = document.querySelector(`.book-card[data-id="${id}"]`);
+  if (card) card.remove();
+
+  console.log("Deleted book with id:", id);
 }
 
 bookForm.addEventListener("submit", function (event) {
