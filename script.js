@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const mainContent = document.querySelector(".main-content");
 const myLibrary = [];
 
 function Book(id, title, author, numOfPages, readStatus) {
@@ -37,13 +38,29 @@ function addBookToLibrary(title, author, numOfPages, readStatus) {
     readStatus
   );
   myLibrary.push(book);
-  console.log(myLibrary);
+  displayLibrary();
+  //   console.log(myLibrary);
   return console.log(book);
 }
 
 //this function will display all the books in myLibrary
 function displayLibrary() {
-  Book.forEach(function (books, index) {});
+  const cardContainer = document.querySelector(".card-container");
+  cardContainer.innerHTML = "";
+
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+
+    bookCard.innerHTML = `
+      <p><strong>Title:</strong> ${book.title}</p>
+      <p><strong>Author:</strong> ${book.author}</p>
+      <p><strong>Pages:</strong> ${book.numOfPages}</p>
+      <p><strong>Status:</strong> ${book.readStatus}</p>
+    `;
+
+    cardContainer.appendChild(bookCard);
+  });
 }
 
 bookForm.addEventListener("submit", function (event) {
@@ -55,7 +72,10 @@ bookForm.addEventListener("submit", function (event) {
   const title = formData.get("title");
   const author = formData.get("author");
   const numOfPages = formData.get("numOfPages");
-  const readStatus = formData.get("status");
+  const readStatus = document.querySelector(
+    'input[name="readStatus"]:checked'
+  ).value;
 
+  form.reset();
   addBookToLibrary(title, author, numOfPages, readStatus);
 });

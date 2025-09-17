@@ -166,12 +166,32 @@ label {
   width: 400px;
 }
 
+.popup-content input:focus {
+  outline: none;
+  border: 2px solid #4a90e2;
+}
+
 .popup-content input {
   padding: 5px;
   border-radius: 10px;
   height: 40px;
   font-size: 18px;
   border: none;
+}
+
+.popup-content input[type="radio"] {
+  width: 40px;
+  accent-color: #4a90e2; /* modern browsers: changes the check/fill color */
+  border-radius: 50%;
+}
+
+.radio-position {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding-left: 20px;
+  gap: 10px;
 }
 
 .submit-book {
